@@ -1,0 +1,50 @@
+/* Complementos de la PWA sobre el diseño original de MEXIA (styles.css).
+   Solo se agregan componentes nuevos: avisos, carga, chips de estado, gráfica, tabla de admin. */
+
+.mxa-header-actions { display: flex; align-items: center; gap: 8px; }
+.mxa-session { cursor: pointer; border: 0; }
+.mxa-offline { font-size: 12px; font-weight: 700; color: var(--warning); background: var(--warning-bg); padding: 6px 10px; border-radius: 999px; }
+
+.mxa-loading { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 40vh; color: var(--muted); }
+.mxa-spinner { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--blue-soft); border-top-color: var(--blue); animation: mxa-spin .8s linear infinite; }
+@keyframes mxa-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .mxa-spinner { animation: none; } }
+
+.mxa-toast {
+  position: fixed; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+  z-index: 1000; max-width: min(92vw, 460px); padding: 12px 18px; border-radius: 16px;
+  background: #17263a; color: #fff; font-weight: 600; box-shadow: var(--shadow); text-align: center;
+}
+.mxa-toast[data-kind="error"] { background: #a33a3a; }
+
+.mxa-chip { display: inline-flex; align-items: center; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-dark); white-space: nowrap; }
+.mxa-chip--ok { background: var(--green-soft); color: var(--green-dark); }
+.mxa-chip--warn { background: var(--warning-bg); color: var(--warning); }
+.mxa-chip--off { background: #eef1f5; color: #5c6b7c; }
+
+.mxa-row-btn { width: 100%; text-align: left; border: 0; background: transparent; cursor: pointer; font: inherit; color: inherit; }
+.mxa-row-btn:hover { background: rgba(33, 111, 208, .05); }
+
+.mxa-chart { width: 100%; max-width: 420px; height: auto; display: block; margin: 6px 0 10px; }
+.mxa-chart-grid { stroke: var(--border); stroke-width: 1; }
+.mxa-chart-label { font-size: 10px; fill: var(--muted); }
+.mxa-chart-line { fill: none; stroke: var(--blue); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.mxa-chart-dot { fill: #fff; stroke: var(--blue); stroke-width: 2.5; }
+
+.mx63-chat-bubble.mxa-mine { margin-left: auto; background: var(--blue-soft); }
+.mx63-chat-log { display: grid; gap: 8px; margin: 10px 0; }
+.mx63-chat-bubble { max-width: 85%; }
+
+.mxa-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mxa-table th, .mxa-table td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); }
+
+.mx64-avatar img, .mx64-gallery img, .mx63-photo-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.mx63-photo-preview { position: relative; }
+.mx63-photo-preview .mini-button { position: absolute; top: 6px; right: 6px; }
+
+button[disabled], .button[disabled] { opacity: .55; cursor: not-allowed; }
+button[aria-busy="true"] { cursor: progress; }
+
+@media print {
+  header, .bottom-nav, .global-home, .actions, .mx63-panel, #toast { display: none !important; }
+}

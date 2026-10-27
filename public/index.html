@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MEXIA · Tu salud, siempre contigo</title>
+  <meta name="description" content="MEXIA: organiza tu salud por episodios, agenda consultas y da seguimiento con tu médico.">
+  <meta name="theme-color" content="#216fd0">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-192.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="MEXIA">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand-wrap">
+      <div class="brand-mark">✚</div>
+      <div><div class="brand">MEXIA</div>
+      <div class="tagline">Tecnología con inteligencia, salud con humanidad.</div></div>
+    </div>
+    <div class="mxa-header-actions">
+      <span class="mxa-offline" id="offlineBadge" hidden>Sin conexión</span>
+      <button type="button" class="badge mxa-session" id="sessionBadge" hidden></button>
+    </div>
+  </header>
+
+  <div class="progress" id="globalProgress" hidden aria-hidden="true"><span id="progress"></span></div>
+  <main id="screen" class="screen" tabindex="-1">
+    <div class="mxa-loading" role="status"><span class="mxa-spinner" aria-hidden="true"></span>Cargando MEXIA…</div>
+  </main>
+</div>
+<button id="globalHome" class="global-home" type="button" aria-label="Volver al inicio" title="Volver al inicio" style="display:none"><span class="home-label">Volver al inicio</span>⌂</button>
+<div id="toast" class="mxa-toast" role="status" aria-live="polite" hidden></div>
+
+<noscript>MEXIA necesita JavaScript para funcionar.</noscript>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>
